@@ -70,8 +70,12 @@ CHANNEL_LAYERS = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('CHATAPP_DB_NAME', "CHATAPP"),
+        'USER': os.environ.get('CHATAPP_DB_USER', "postgres"),
+        'PASSWORD': os.environ.get('CHATAPP_DB_PASSWORD', "adubi1214"),
+        'HOST': os.environ.get('CHATAPP_DB_HOST', "localhost"),
+        'PORT': os.environ.get('CHATAPP_DB_PORT', "5432"),
     }
 }
 
