@@ -42,15 +42,3 @@ To build for deployment:
 npm run build
 ```
 
-Please note this is a **demo project** of the concepts used in building a chat app. It is simply not production ready. For example, when the backend receives a message, it'll broadcast to everyone in the room including the sender. This means when you demo the sender role, be aware you'll see every outbound message duplicated. The project is setup for deployment on Vercel because heroku does not have free taies anymore! 
----
-
-<div align="center">
-
-<i>Other places you can find us:</i><br>
-
-<a href="[https://www.youtube.com/channel/UCRM1gWNTDx0SHIqUJygD-kQ] (https://www.youtube.com/channel/UCxsjU6EbU83ott5zt6m_CkQ)" target="_blank"><img src="https://img.shields.io/badge/YouTube-%23E4405F.svg?&style=flat-square&logo=youtube&logoColor=white" alt="YouTube"></a>
-<a href="https://www.twitter.com/justdjangocode" target="_blank"><img src="https://img.shields.io/badge/Twitter-%231877F2.svg?&style=flat-square&logo=twitter&logoColor=white" alt="Twitter"></a>
-
-</div>
-
