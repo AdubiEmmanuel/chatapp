@@ -8,3 +8,4 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'justchat.settings')
 application = get_wsgi_application()
 
 application = DjangoWhiteNoise(application)
+app = application

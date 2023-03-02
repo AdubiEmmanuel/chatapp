@@ -1,10 +1,10 @@
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-dev_secret_key = 'some-secret-key'
-SECRET_KEY = os.path.get('MY_SECRET_KEY', dev_secret_key)
+DEV_SECRET_KEY = 'some-secret-key'
+SECRET_KEY = os.environ.get('MY_SECRET_KEY', DEV_SECRET_KEY)
 DEBUG = True
-ALLOWED_HOSTS = ['justdjango-chat.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1', '.now.sh'] #justdjango-chat.herokuapp.com
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -94,8 +94,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'build/static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'staticfiles_build', 'static')
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+# STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # authentication settings
 
@@ -119,3 +122,6 @@ CSRF_COOKIE_NAME = "csrftoken"
 HOST_URL = 'https://justdjango-chat.herokuapp.com'
 if DEBUG:
     HOST_URL = 'http://127.0.0.1:8000'
+    
+    
+
