@@ -1,9 +1,5 @@
 <p align="center">
-  <p align="center">
-    <a href="https://justdjango.com/?utm_source=github&utm_medium=logo" target="_blank">
-      <img src="https://assets.justdjango.com/static/branding/logo.svg" alt="JustDjango" height="72">
-    </a>
-  </p>
+
   <p align="center">
     The Definitive Django Learning Platform.
   </p>
@@ -11,9 +7,7 @@
 
 # Full stack django and react.js app for my interview as a programming instructor.
 
-<p align="center">
-  <a href="https://youtu.be/uZgRbnIsgrA"><img src="https://github.com/justdjango/justchat/blob/master/thumbnail.png" width="290"></a>
-</p>
+
 
 This app implements chat app using django and django channels which enables django through asgi (web server gateway interface) to use web socket for real-time processes. In other words, with the implementation of django channels, I am able to build a django application that does not load the server side with request by the client app
 
