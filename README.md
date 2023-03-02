@@ -1,7 +1,7 @@
 <p align="center">
 
   <p align="center">
-    The Definitive Django Learning Platform.
+    Full Stack ChatApp Using Django and Django Channels with React.js for frontend
   </p>
 </p>
 
