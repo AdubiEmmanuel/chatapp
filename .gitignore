@@ -1,4 +1,4 @@
-env/
+*.env/
 **/*.pyc
 
 # dependencies
@@ -11,7 +11,10 @@ node_modules
 .env 
 # production
 /build
-
+migrations/
+bin/
+lib/
+*.sqlite3
 # misc
 .DS_Store
 .env.local

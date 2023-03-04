@@ -1,12 +1,13 @@
 import os
+import dj_database_url
+from decouple import config 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DEV_SECRET_KEY = 'some-secret-key'
-# SECRET_KEY = '9nneu#^7_aai*(#(6_qiihu-^k-+%a86&vjh=_i9#(c4^8s51n'
-SECRET_KEY = os.environ.get('MY_SECRET_KEY', DEV_SECRET_KEY)
+dev_secret_key = 'some-secret-key'
+# SECRET_KEY = os.path.get('MY_SECRET_KEY', dev_secret_key)
+SECRET_KEY = '9nneu#^7_aai*(#(6_qiihu-^k-+%a86&vjh=_i9#(c4^8s51n'
 DEBUG = True
-ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1',
-                 '.now.sh']  # justdjango-chat.herokuapp.com
+ALLOWED_HOSTS = ['justdjango-chat.herokuapp.com', '127.0.0.1', 'localhost', 'localhost:3000']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -70,16 +71,26 @@ CHANNEL_LAYERS = {
     },
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('CHATAPP_DB_NAME', "CHATAPP"),
-        'USER': os.environ.get('CHATAPP_DB_USER', "postgres"),
+        'NAME': os.environ.get('CHATAPP_DB_NAME', "NEWCHATAPP"),
+        'USER': os.environ.get('CHATAPP_DB_USERNAME', "postgres"),
         'PASSWORD': os.environ.get('CHATAPP_DB_PASSWORD', "adubi1214"),
         'HOST': os.environ.get('CHATAPP_DB_HOST', "localhost"),
         'PORT': os.environ.get('CHATAPP_DB_PORT', "5432"),
     }
 }
+
+
+DATABASES['default'] = dj_database_url.config()
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', },
@@ -96,12 +107,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'build/static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles',
-                           'staticfiles_build', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-# STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # authentication settings
 
@@ -116,7 +123,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
     ),
 }
-CORS_ORIGIN_WHITELIST = ('localhost:3000')
+CORS_ORIGIN_WHITELIST = ('localhost:3000', 'localhost:8000')
 ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
